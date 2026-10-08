@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parque Estadual de Vila Velha</title>
+    <meta name="description"
+        content="Conheça o Parque Estadual de Vila Velha, em Ponta Grossa - Paraná. Explore Arenitos, Furnas, Lagoa Dourada e saiba mais sobre nossa sustentabilidade.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i> Vila Velha
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio" class="active" data-tab="inicio">Início</a></li>
+                <li><a href="#sobre" data-tab="sobre">Sobre o Parque</a></li>
+                <li><a href="#atrativos" data-tab="atrativos">Atrativos</a></li>
+                <li><a href="#informacoes" data-tab="informacoes">Informações</a></li>
+                <li><a href="#sustentabilidade" class="highlight-tab" data-tab="sustentabilidade">Sustentabilidade</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <main class="content-area">
+        <!-- TAB: INÍCIO -->
+        <section id="inicio" class="tab-section active">
+            <div class="hero">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Parque Estadual de Vila Velha</h1>
+                    <h2>Furnas e Lagoa Dourada</h2>
+                    <p class="location-badge"><i class="fa-solid fa-location-dot"></i> Ponta Grossa – Paraná</p>
+                    <button class="cta-btn" onclick="document.querySelector('[data-tab=\'sobre\']').click()">Descubra
+                        Mais</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: SOBRE -->
+        <section id="sobre" class="tab-section">
+            <div class="container section-padding">
+                <div class="section-header">
+                    <h2>Sobre o Parque</h2>
+                    <p>Conheça a geografia, o clima e a localização de um dos parques mais fascinantes do Brasil.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card info-card">
+                        <div class="card-icon"><i class="fa-solid fa-mountain"></i></div>
+                        <h3>Geografia</h3>
+                        <p>A região é formada por planaltos, campos naturais e majestosas formações rochosas de arenito.
+                        </p>
+                        <p>O relevo apresenta depressões, furnas e lagoas naturais formadas por processos geológicos ao
+                            longo de milhões de anos.</p>
+                    </div>
+
+                    <div class="card info-card">
+                        <div class="card-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+                        <h3>Clima</h3>
+                        <p>O clima é subtropical úmido, possuindo verões moderadamente quentes e invernos frios, com
+                            possibilidade de geadas.</p>
+                        <p>As chuvas são bem distribuídas ao longo de todo o ano.</p>
+                    </div>
+
+                    <div class="card info-card">
+                        <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <h3>Localização e Acesso</h3>
+                        <p>Localizado em Ponta Grossa, no estado do Paraná, o parque está a cerca de 90 km de Curitiba.
+                        </p>
+                        <p>O acesso principal é realizado pela Rodovia BR-376 e é possível chegar de carro ou por
+                            excursões turísticas.</p>
+                    </div>
+                </div>
+
+                <div class="next-page-container">
+                    <button class="cta-btn next-btn"
+                        onclick="document.querySelector('[data-tab=\'atrativos\']').click()">Avançar para Atrativos <i
+                            class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: ATRATIVOS -->
+        <section id="atrativos" class="tab-section">
+            <div class="container section-padding">
+                <div class="section-header">
+                    <h2>Atrativos Naturais</h2>
+                    <p>Encantos únicos para visitantes de todas as idades.</p>
+                </div>
+
+                <div class="attraction-cards">
+                    <div class="attr-card">
+                        <div class="attr-img image-arenitos"></div>
+                        <div class="attr-content">
+                            <h3>Arenitos</h3>
+                            <p>Formações rochosas esculpidas pela erosão, algumas com formatos que lembram objetos ou
+                                animais.</p>
+                        </div>
+                    </div>
+
+                    <div class="attr-card">
+                        <div class="attr-img image-furnas"></div>
+                        <div class="attr-content">
+                            <h3>Furnas</h3>
+                            <p>Grandes crateras naturais com profundidade de até 100 metros, formadas por processos
+                                geológicos há milhões de anos.</p>
+                        </div>
+                    </div>
+
+                    <div class="attr-card">
+                        <div class="attr-img image-lagoa"></div>
+                        <div class="attr-content">
+                            <h3>Lagoa Dourada</h3>
+                            <p>Lagoa de águas limpas que refletem a luz do sol ganhando um tom dourado. É conectada a
+                                algumas furnas por canais subterrâneos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="next-page-container">
+                    <button class="cta-btn next-btn"
+                        onclick="document.querySelector('[data-tab=\'informacoes\']').click()">Avançar para Informações
+                        <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: INFORMAÇÕES -->
+        <section id="informacoes" class="tab-section">
+            <div class="container section-padding">
+                <div class="section-header">
+                    <h2>Planeje sua Visita</h2>
+                    <p>Tudo o que você precisa saber antes de ir ao parque.</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="info-block">
+                        <i class="fa-solid fa-clock"></i>
+                        <h4>Horários de Funcionamento</h4>
+                        <p>Funciona todos os dias da semana, geralmente das <strong>8h às 17h</strong>. O horário pode
+                            variar em feriados ou datas especiais. O parque abre cedo para garantir tempo suficiente na
+                            exploração das trilhas.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <i class="fa-solid fa-ticket"></i>
+                        <h4>Ingressos e Custos</h4>
+                        <p>O valor varia, geralmente ficando entre <strong>R$40 e R$90</strong> (inteira ou meia). O
+                            ingresso permite visitar os arenitos, furnas e Lagoa Dourada. Estudantes, idosos e alguns
+                            grupos têm direito à meia-entrada.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <i class="fa-solid fa-utensils"></i>
+                        <h4>Infraestrutura e Alimentação</h4>
+                        <p>O local conta com centro de visitantes, lanchonete, restaurante, áreas de descanso, banheiro
+                            e transporte interno para as atrações. Há refeições simples e mirantes para observar as
+                            paisagens.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h4>Guias e Comunicação</h4>
+                        <p>A presença de guias é recomendada, principalmente nas furnas e trilhas longas. O sinal de
+                            celular é limitado pela natureza, mas o centro de visitantes possui acesso à internet.
+                            Placas informativas ajudam na comunicação.</p>
+                    </div>
+                </div>
+
+                <div class="next-page-container">
+                    <button class="cta-btn next-btn"
+                        onclick="document.querySelector('[data-tab=\'sustentabilidade\']').click()">Avançar para
+                        Sustentabilidade <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: SUSTENTABILIDADE -->
+        <section id="sustentabilidade" class="tab-section">
+            <div class="container section-padding">
+                <div class="sustain-header">
+                    <div class="sustain-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <h2>Sustentabilidade e Conservação</h2>
+                    <p>Cuidar da natureza é o que garante o futuro do Parque Estadual de Vila Velha.</p>
+                </div>
+
+                <div class="sustain-content">
+                    <div class="sustain-text">
+                        <h3>O Papel de Cada Visitante</h3>
+                        <p>A segurança dos visitantes e a preservação do meio ambiente caminham juntas no Parque.
+                            Contamos com equipes de monitoramento e sinalização em trilhas e áreas de risco. Para que a
+                            beleza de Vila Velha continue encantando gerações futuras, estabelecemos algumas regras de
+                            conduta vitais:</p>
+                        <ul class="sustain-list">
+                            <li><i class="fa-regular fa-circle-check"></i> <strong>Não subir nas formações
+                                    rochosas:</strong> O arenito é extremamente frágil e a erosão humana causa danos
+                                irreversíveis aos monumentos naturais.</li>
+                            <li><i class="fa-regular fa-circle-check"></i> <strong>Não alimentar os animais:</strong> A
+                                fauna local deve manter seus hábitos naturais para um ecossistema equilibrado e seguro.
+                            </li>
+                            <li><i class="fa-regular fa-circle-check"></i> <strong>Respeito às Áreas de Risco:</strong>
+                                Siga estritamente as placas de alerta, permanecendo nos caminhos delimitados.</li>
+                            <li><i class="fa-regular fa-circle-check"></i> <strong>Valorização Ecológica:</strong>
+                                Nossos guias oferecem informações valiosas sobre a formação geológica e a flora local,
+                                promovendo a educação ambiental durante o passeio.</li>
+                        </ul>
+                        <div class="sustain-quote">
+                            "A natureza de Vila Velha levou milhões de anos para ser esculpida. Nossa missão é
+                            protegê-la a cada segundo."
+                        </div>
+                    </div>
+                    <div class="sustain-image">
+                        <!-- CSS Background image will be applied here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="students">
+                <h4>Equipe: Trupe</h4>
+                <h3>Integrantes:
+                    João Victor Ramos Pupo <br>
+                    Lucas Baumel Artero <br>
+                    Gabriel Kaique Correia da Luz <br>
+                    Gustavo dos Santos Araujo <br>
+                    Luis Claudio Pinheiro dos Santos <br>
+                    Bento de Mara <br>
+                </h3>
+            </div>
+            <div class="sources">
+                <h4>Fontes e Contatos</h4>
+                <ul>
+                    <li><a href="https://pt.wikipedia.org/wiki/Parque_Estadual_de_Vila_Velha" target="_blank">Wikipedia
+                            do Parque</a></li>
+                    <li><a href="https://www.sedest.pr.gov.br/" target="_blank">SEDEST PR</a></li>
+                    <li><a href="https://www.parana.pr.gov.br/" target="_blank">Governo do Paraná</a></li>
+                    <li>Email: parquevilavelha@meioambiente.pr.gov.br | Tel: (42) 3231-1336</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Parque Estadual Vila Velha</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

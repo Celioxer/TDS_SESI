@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Postagem — Witmarsum</title>
+    <link rel="stylesheet" href="./assets/style/index.css">
+    <script src="./assets/script/main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div id="navbar" class="navbar"></div>
+        <div id="content" class="content">
+            <div class="hero">
+                <h1>Nova Postagem</h1>
+                <p class="subtitle">Compartilhe notícias, eventos ou novidades sobre Witmarsum.</p>
+                <div class="hero-divider"></div>
+            </div>
+            <div class="posts">
+                <div class="form-newpost">
+                    <input type="text" id="title" placeholder="Título da postagem" maxlength="100">
+                    <textarea id="contentt" placeholder="Escreva o conteúdo da sua postagem aqui..."></textarea>
+                    <label class="form-image-label">
+                        <span>📷 Anexar imagem (opcional)</span>
+                        <input type="file" id="post-image" accept="image/*" />
+                    </label>
+                    <div id="image-preview" class="image-preview"></div>
+                    <button class="btn" onclick="addPost()">📝 Publicar</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer" id="footer"></div>
+    </div>
+</body>
+</html>

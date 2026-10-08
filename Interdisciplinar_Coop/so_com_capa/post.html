@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postagem — Witmarsum</title>
+    <link rel="stylesheet" href="./assets/style/index.css">
+    <script src="./assets/script/main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div id="navbar" class="navbar"></div>
+        <div id="content" class="content post-detail">
+            <h1 id="post-title"></h1>
+            <small id="post-date"></small>
+            <hr>
+            <div id="post-image-container"></div>
+            <p id="post-content"></p>
+            <br>
+            <a href="index.html" class="btn">← Voltar ao início</a>
+        </div>
+        <div class="footer" id="footer"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = Number(params.get("id"));
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+            const post = posts.find(p => p.id === id);
+
+            if (!post) {
+                document.getElementById("content").innerHTML = '<div class="hero"><h1>Postagem não encontrada</h1><p class="subtitle">A postagem que você procura não existe ou foi removida.</p><a href="index.html" class="btn">Voltar ao início</a></div>';
+                return;
+            }
+
+            document.title = post.title + " — Witmarsum";
+            document.getElementById("post-title").innerText = post.title;
+            document.getElementById("post-date").innerText = post.date;
+            document.getElementById("post-content").innerText = post.content;
+
+            const imgContainer = document.getElementById("post-image-container");
+            if (post.image && imgContainer) {
+                imgContainer.innerHTML = `<img src="${post.image}" alt="${post.title}" class="post-detail-image">`;
+            }
+        });
+    </script>
+</body>
+</html>

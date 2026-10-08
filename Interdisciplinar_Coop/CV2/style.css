@@ -1,0 +1,62 @@
+:root {
+    --primary: #2d4a27; /* Verde escuro do PDF */
+    --secondary: #4a7c44;
+    --light-green: #e9f5db;
+    --white: #ffffff;
+    --text: #333;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
+body { color: var(--text); line-height: 1.6; background: var(--white); }
+
+header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a { color: var(--white); text-decoration: none; margin-left: 15px; font-weight: bold; }
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000') center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+.container { padding: 60px 5%; }
+.bg-alt { background-color: var(--light-green); }
+
+h2 { color: var(--primary); margin-bottom: 30px; border-left: 5px solid var(--secondary); padding-left: 15px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+.card { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+.calculator {
+    background: var(--primary);
+    color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.calculator input { padding: 10px; border-radius: 5px; border: none; margin: 15px 0; width: 60px; text-align: center; }
+
+.total { font-size: 1.5rem; font-weight: bold; color: #d4e157; }
+
+footer { background: var(--primary); color: var(--white); padding: 40px 5%; text-align: center; }
+.equipe { margin-top: 20px; font-size: 0.8rem; opacity: 0.8; }

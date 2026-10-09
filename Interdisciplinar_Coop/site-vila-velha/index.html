@@ -4,205 +4,640 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parque Estadual de Vila Velha</title>
+    <meta name="theme-color" content="#0F2417">
+    <title>Parque Estadual de Vila Velha — Arenitos, Furnas e Lagoa Dourada</title>
     <meta name="description"
-        content="Conheça o Parque Estadual de Vila Velha, em Ponta Grossa - Paraná. Explore Arenitos, Furnas, Lagoa Dourada e saiba mais sobre nossa sustentabilidade.">
+        content="Descubra o Parque Estadual de Vila Velha, em Ponta Grossa - Paraná. Explore os Arenitos, as Furnas e a Lagoa Dourada, veja a galeria de fotos e conheça nossas ações de sustentabilidade.">
+
+    <meta property="og:title" content="Parque Estadual de Vila Velha">
+    <meta property="og:description"
+        content="Arenitos esculpidos pelo tempo, Furnas profundas e a mística Lagoa Dourada, em Ponta Grossa - Paraná.">
+    <meta property="og:type" content="website">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Barra de progresso de leitura -->
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 
-    <!-- Header / Navigation -->
-    <header class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-leaf"></i> Vila Velha
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#inicio" class="active" data-tab="inicio">Início</a></li>
-                <li><a href="#sobre" data-tab="sobre">Sobre o Parque</a></li>
-                <li><a href="#atrativos" data-tab="atrativos">Atrativos</a></li>
-                <li><a href="#informacoes" data-tab="informacoes">Informações</a></li>
-                <li><a href="#sustentabilidade" class="highlight-tab" data-tab="sustentabilidade">Sustentabilidade</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="menu-toggle">
-            <i class="fa-solid fa-bars"></i>
+    <!-- Fundo decorativo -->
+    <div class="bg-decoration" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+    </div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#inicio" class="logo" data-tab="inicio" aria-label="Página inicial">
+                <span class="logo-mark"><i class="fa-solid fa-leaf"></i></span>
+                <span class="logo-text">
+                    <strong>Vila Velha</strong>
+                    <small>Parque Estadual • PR</small>
+                </span>
+            </a>
+
+            <nav class="nav-desktop" aria-label="Navegação principal">
+                <ul class="nav-links">
+                    <li><a href="#inicio" class="active" data-tab="inicio">Início</a></li>
+                    <li><a href="#sobre" data-tab="sobre">Sobre o Parque</a></li>
+                    <li><a href="#atrativos" data-tab="atrativos">Atrativos</a></li>
+                    <li><a href="#informacoes" data-tab="informacoes">Informações</a></li>
+                    <li><a href="#sustentabilidade" data-tab="sustentabilidade" class="highlight-tab">Sustentabilidade</a></li>
+                </ul>
+            </nav>
+
+            <a href="#informacoes" class="nav-cta" data-tab="informacoes">
+                <i class="fa-regular fa-calendar-check"></i> Planeje a visita
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
+    <!-- Menu mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#inicio" data-tab="inicio" class="active">Início</a></li>
+            <li><a href="#sobre" data-tab="sobre">Sobre o Parque</a></li>
+            <li><a href="#atrativos" data-tab="atrativos">Atrativos</a></li>
+            <li><a href="#informacoes" data-tab="informacoes">Informações</a></li>
+            <li><a href="#sustentabilidade" data-tab="sustentabilidade">Sustentabilidade</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <span><i class="fa-solid fa-location-dot"></i> Ponta Grossa — Paraná</span>
+        </div>
+    </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
     <main class="content-area">
-        <!-- TAB: INÍCIO -->
+
+        <!-- ================= TAB: INÍCIO ================= -->
         <section id="inicio" class="tab-section active">
             <div class="hero">
+                <div class="hero-media"></div>
                 <div class="hero-overlay"></div>
+                <div class="hero-grain"></div>
+
                 <div class="hero-content">
-                    <h1>Parque Estadual de Vila Velha</h1>
-                    <h2>Furnas e Lagoa Dourada</h2>
-                    <p class="location-badge"><i class="fa-solid fa-location-dot"></i> Ponta Grossa – Paraná</p>
-                    <button class="cta-btn" onclick="document.querySelector('[data-tab=\'sobre\']').click()">Descubra
-                        Mais</button>
+                    <p class="hero-kicker reveal"><i class="fa-solid fa-location-dot"></i> Ponta Grossa &mdash; Paraná, Brasil</p>
+                    <h1 class="hero-title reveal">Parque Estadual de<br><em>Vila Velha</em></h1>
+                    <p class="hero-sub reveal">Arenitos esculpidos pelo tempo, Furnas profundas e a mística Lagoa Dourada &mdash;
+                        um dos sítios geológicos mais impressionantes do Brasil.</p>
+
+                    <div class="hero-actions reveal">
+                        <a href="#atrativos" class="btn btn-primary" data-tab="atrativos">
+                            Explorar atrativos <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#sobre" class="btn btn-ghost" data-tab="sobre">
+                            <i class="fa-regular fa-compass"></i> Sobre o parque
+                        </a>
+                    </div>
+
+                    <div class="hero-stats reveal">
+                        <div class="hero-stat">
+                            <span class="stat-value" data-counter="3803" data-suffix="">0</span>
+                            <span class="stat-label">hectares preservados</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-value" data-counter="100" data-suffix="m">0</span>
+                            <span class="stat-label">de profundidade nas Furnas</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-value" data-counter="90" data-suffix=" km">0</span>
+                            <span class="stat-label">de Curitiba</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#sobre" class="scroll-cue" data-tab="sobre" aria-label="Rolar para baixo">
+                    <span></span>
+                </a>
+            </div>
+
+            <!-- Destaques com fotos -->
+            <div class="container highlights">
+                <div class="highlights-head reveal">
+                    <span class="eyebrow">Explore</span>
+                    <h2>Três sítios, uma paisagem única</h2>
+                    <p>Arenitos, Furnas e Lagoa Dourada formam um conjunto geológico raro, a poucos minutos do centro de
+                        Ponta Grossa.</p>
+                </div>
+
+                <div class="highlight-grid">
+                    <a class="highlight-card reveal" href="#atrativos" data-tab="atrativos">
+                        <img src="assets/img/camelo.jpg" alt="Formação rochosa dos Arenitos" loading="lazy">
+                        <span class="highlight-body">
+                            <span class="highlight-tag">01</span>
+                            <strong>Arenitos</strong>
+                            <small>Esculturas naturais de pedra</small>
+                        </span>
+                    </a>
+                    <a class="highlight-card reveal" href="#atrativos" data-tab="atrativos">
+                        <img src="assets/img/furna.jpg" alt="Vista aérea de uma furna" loading="lazy">
+                        <span class="highlight-body">
+                            <span class="highlight-tag">02</span>
+                            <strong>Furnas</strong>
+                            <small>Crateras de até 100 metros</small>
+                        </span>
+                    </a>
+                    <a class="highlight-card reveal" href="#atrativos" data-tab="atrativos">
+                        <img src="assets/img/lagoa.jpg" alt="Lagoa Dourada" loading="lazy">
+                        <span class="highlight-body">
+                            <span class="highlight-tag">03</span>
+                            <strong>Lagoa Dourada</strong>
+                            <small>Águas que brilham ao entardecer</small>
+                        </span>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- TAB: SOBRE -->
+        <!-- ================= TAB: SOBRE ================= -->
         <section id="sobre" class="tab-section">
             <div class="container section-padding">
-                <div class="section-header">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Conheça o parque</span>
                     <h2>Sobre o Parque</h2>
-                    <p>Conheça a geografia, o clima e a localização de um dos parques mais fascinantes do Brasil.</p>
+                    <p>Geografia, clima e localização de um dos parques mais fascinantes do Brasil.</p>
+                </div>
+
+                <div class="about-split">
+                    <div class="about-text reveal">
+                        <h3>Uma cidade de pedra esculpida pela natureza</h3>
+                        <p>O conjunto de formações rochosas lembra uma cidade medieval com castelos e torres em ruínas &mdash;
+                            daí o nome <strong>Vila Velha</strong>. As colunas e muralhas de arenito atingem, em média, 20 metros de
+                            altura, podendo chegar a mais de 30 metros.</p>
+                        <p>Ao longo de milhões de anos, a ação do vento e da chuva esculpiu blocos de arenito em formas
+                            exóticas, enquanto processos geológicos criaram depressões, furnas e lagoas naturais.</p>
+
+                        <ul class="about-highlights">
+                            <li>
+                                <i class="fa-solid fa-gem"></i>
+                                <div><strong>Sítio Geológico</strong><span>Reconhecido pela SIGEP pelo valor científico e paisagístico.</span></div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-tree"></i>
+                                <div><strong>Biodiversidade</strong><span>Campos naturais, flora e fauna típicas do planalto paranaense.</span></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="about-visual reveal">
+                        <div class="about-image" role="img" aria-label="Fenda entre as paredes de arenito do Parque Vila Velha"></div>
+                        <div class="about-badge">
+                            <i class="fa-solid fa-mountain-sun"></i>
+                            <span><strong>IAP</strong>Gestão estadual</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="grid-3">
-                    <div class="card info-card">
+                    <article class="card info-card reveal">
                         <div class="card-icon"><i class="fa-solid fa-mountain"></i></div>
                         <h3>Geografia</h3>
-                        <p>A região é formada por planaltos, campos naturais e majestosas formações rochosas de arenito.
-                        </p>
+                        <p>A região é formada por planaltos, campos naturais e majestosas formações rochosas de arenito.</p>
                         <p>O relevo apresenta depressões, furnas e lagoas naturais formadas por processos geológicos ao
                             longo de milhões de anos.</p>
-                    </div>
+                    </article>
 
-                    <div class="card info-card">
+                    <article class="card info-card reveal">
                         <div class="card-icon"><i class="fa-solid fa-cloud-sun"></i></div>
                         <h3>Clima</h3>
                         <p>O clima é subtropical úmido, possuindo verões moderadamente quentes e invernos frios, com
                             possibilidade de geadas.</p>
                         <p>As chuvas são bem distribuídas ao longo de todo o ano.</p>
-                    </div>
+                    </article>
 
-                    <div class="card info-card">
+                    <article class="card info-card reveal">
                         <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
                         <h3>Localização e Acesso</h3>
-                        <p>Localizado em Ponta Grossa, no estado do Paraná, o parque está a cerca de 90 km de Curitiba.
-                        </p>
+                        <p>Localizado em Ponta Grossa, no estado do Paraná, o parque está a cerca de 90 km de Curitiba.</p>
                         <p>O acesso principal é realizado pela Rodovia BR-376 e é possível chegar de carro ou por
                             excursões turísticas.</p>
+                    </article>
+                </div>
+
+                <!-- Linha do tempo -->
+                <div class="subsection-head reveal" style="margin-top: 110px;">
+                    <span class="eyebrow">Milhões de anos</span>
+                    <h2 class="h-md">Linha do Tempo Geológica</h2>
+                    <p>Do mar interior ao parque protegido: a história que esculpiu Vila Velha.</p>
+                </div>
+
+                <ol class="timeline">
+                    <li class="timeline-item reveal">
+                        <div class="timeline-dot"><i class="fa-solid fa-water"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">≈ 340 milhões de anos</span>
+                            <h4>O mar interior</h4>
+                            <p>No período Carbonífero, um mar interior cobria a região. Os sedimentos arenosos se
+                                depositaram e, cimentados por óxido de ferro, deram origem ao arenito avermelhado.</p>
+                        </div>
+                    </li>
+                    <li class="timeline-item reveal">
+                        <div class="timeline-dot"><i class="fa-solid fa-snowflake"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Permo-Carbonífero</span>
+                            <h4>Glaciações e desertos</h4>
+                            <p>As rochas do Grupo Itararé testemunharam eras glaciais e desertos antigos, na borda leste
+                                da Bacia do Paraná.</p>
+                        </div>
+                    </li>
+                    <li class="timeline-item reveal">
+                        <div class="timeline-dot"><i class="fa-solid fa-earth-americas"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Era Mesozoica</span>
+                            <h4>O Arco de Ponta Grossa</h4>
+                            <p>Forças tectônicas elevaram o Arco de Ponta Grossa no início do Evento Sul-Atlântico &mdash;
+                                a época em que América do Sul e África começaram a se separar.</p>
+                        </div>
+                    </li>
+                    <li class="timeline-item reveal">
+                        <div class="timeline-dot"><i class="fa-solid fa-wind"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Milênios seguintes</span>
+                            <h4>A escultura do vento e da chuva</h4>
+                            <p>O terreno se elevou e foi erodido de forma diferencial, isolando blocos e criando as formas
+                                que hoje encantam os visitantes.</p>
+                        </div>
+                    </li>
+                    <li class="timeline-item reveal">
+                        <div class="timeline-dot"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">1966 • 1990</span>
+                            <h4>Proteção e criação do parque</h4>
+                            <p>Em 1966 o patrimônio histórico e artístico do Paraná passa a proteger as formações. Em 24
+                                de setembro de 1990 é criado oficialmente o Parque Estadual de Vila Velha.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <!-- A lenda -->
+                <div class="legend reveal">
+                    <div class="legend-media" role="img" aria-label="Textura avermelhada das rochas de arenito"></div>
+                    <div class="legend-body">
+                        <span class="eyebrow eyebrow-light">A lenda</span>
+                        <h3>Abaretama, a Terra dos Homens</h3>
+                        <p>Muito tempo atrás teria existido <strong>Abaretama</strong> &mdash; um refúgio sagrado onde se escondia o
+                            <em>itainhareru</em>, um tesouro valioso protegido pelos <strong>apiabas</strong>, os guerreiros mais fortes
+                            da tribo, com a bênção de Tupã. Eles só permaneciam guardiões enquanto se mantivessem longe
+                            de qualquer mulher.</p>
+                        <p>O conflito começa quando <strong>Dhui</strong>, chefe dos guerreiros, passa a questionar seu destino. Tribos
+                            rivais enviam <strong>Aracê Poranga</strong> para seduzi-lo e descobrir o segredo. Mas o plano se transforma
+                            em paixão: à sombra de um ipê, os dois se entregam ao amor e esquecem seus deveres.</p>
+                        <p>Tupã, irado, não perdoa a quebra do juramento e lança um terremoto violento. Abaretama é
+                            transformada em pedra, o ouro do tesouro derrete e dá origem à <strong>Lagoa Dourada</strong>, e os dois
+                            amantes são eternizados na rocha, unidos para sempre. Assim, Abaretama tornou-se
+                            <strong>Itacueretaba</strong>.</p>
                     </div>
                 </div>
 
-                <div class="next-page-container">
-                    <button class="cta-btn next-btn"
-                        onclick="document.querySelector('[data-tab=\'atrativos\']').click()">Avançar para Atrativos <i
-                            class="fa-solid fa-arrow-right"></i></button>
+                <div class="next-page-container reveal">
+                    <a href="#atrativos" class="btn btn-primary next-btn" data-tab="atrativos">
+                        Avançar para Atrativos <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- TAB: ATRATIVOS -->
+        <!-- ================= TAB: ATRATIVOS ================= -->
         <section id="atrativos" class="tab-section">
             <div class="container section-padding">
-                <div class="section-header">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Encantos naturais</span>
                     <h2>Atrativos Naturais</h2>
-                    <p>Encantos únicos para visitantes de todas as idades.</p>
+                    <p>Três sítios vizinhos que reúnem geologia, história e paisagens inesquecíveis.</p>
                 </div>
 
                 <div class="attraction-cards">
-                    <div class="attr-card">
-                        <div class="attr-img image-arenitos"></div>
+                    <article class="attr-card reveal">
+                        <div class="attr-media">
+                            <img src="assets/img/camelo.jpg" alt="Formação rochosa de arenito em Vila Velha" loading="lazy">
+                            <span class="attr-index">01</span>
+                        </div>
                         <div class="attr-content">
                             <h3>Arenitos</h3>
                             <p>Formações rochosas esculpidas pela erosão, algumas com formatos que lembram objetos ou
                                 animais.</p>
+                            <div class="attr-tags">
+                                <span>Taça</span><span>Bota</span><span>Esfinge</span><span>Camelo</span>
+                            </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="attr-card">
-                        <div class="attr-img image-furnas"></div>
+                    <article class="attr-card reveal">
+                        <div class="attr-media">
+                            <img src="assets/img/furna.jpg" alt="Vista de cima de uma furna com lago no fundo" loading="lazy">
+                            <span class="attr-index">02</span>
+                        </div>
                         <div class="attr-content">
                             <h3>Furnas</h3>
                             <p>Grandes crateras naturais com profundidade de até 100 metros, formadas por processos
                                 geológicos há milhões de anos.</p>
+                            <div class="attr-tags">
+                                <span>Crateras</span><span>Paredes verticais</span><span>Ligações subterrâneas</span>
+                            </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="attr-card">
-                        <div class="attr-img image-lagoa"></div>
+                    <article class="attr-card reveal">
+                        <div class="attr-media">
+                            <img src="assets/img/lagoa.jpg" alt="Lagoa Dourada, no Parque Estadual de Vila Velha" loading="lazy">
+                            <span class="attr-index">03</span>
+                        </div>
                         <div class="attr-content">
                             <h3>Lagoa Dourada</h3>
                             <p>Lagoa de águas limpas que refletem a luz do sol ganhando um tom dourado. É conectada a
                                 algumas furnas por canais subterrâneos.</p>
+                            <div class="attr-tags">
+                                <span>Águas cristalinas</span><span>Pôr do sol</span><span>Efeito dourado</span>
+                            </div>
                         </div>
-                    </div>
+                    </article>
                 </div>
 
-                <div class="next-page-container">
-                    <button class="cta-btn next-btn"
-                        onclick="document.querySelector('[data-tab=\'informacoes\']').click()">Avançar para Informações
-                        <i class="fa-solid fa-arrow-right"></i></button>
+                <!-- Formações famosas -->
+                <div class="subsection-head reveal" style="margin-top: 110px;">
+                    <span class="eyebrow">Esculturas naturais</span>
+                    <h2 class="h-md">Formações Famosas</h2>
+                    <p>A erosão diferencial criou blocos que a imaginação popular batizou com nomes curiosos.</p>
+                </div>
+
+                <div class="formation-grid">
+                    <figure class="formation reveal">
+                        <div class="formation-media"><img src="assets/img/taca.jpg" alt="A Taça, símbolo de Vila Velha" loading="lazy"></div>
+                        <figcaption>
+                            <h4>A Taça <span>símbolo do parque</span></h4>
+                            <p>Formação que lembra uma grande taça de licor e se tornou o cartão-postal de Vila Velha.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="formation reveal">
+                        <div class="formation-media"><img src="assets/img/camelo.jpg" alt="A Pedra do Camelo" loading="lazy"></div>
+                        <figcaption>
+                            <h4>O Camelo <span>rocha zoomorfa</span></h4>
+                            <p>O formato do bloco lembra a cabeça de um camelo, um dos mais fotografados do parque.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="formation reveal">
+                        <div class="formation-media"><img src="assets/img/bota.jpg" alt="A Pedra da Bota" loading="lazy"></div>
+                        <figcaption>
+                            <h4>A Bota <span>sobre o campo</span></h4>
+                            <p>Erguida sobre os campos naturais, a pedra tem o contorno de uma bota.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="formation reveal">
+                        <div class="formation-media"><img src="assets/img/indio.jpg" alt="A Cabeça de Índio esculpida na rocha" loading="lazy"></div>
+                        <figcaption>
+                            <h4>Cabeça de Índio <span>perfil na pedra</span></h4>
+                            <p>A erosão desenhou na rocha o perfil de um rosto humano.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="formation reveal">
+                        <div class="formation-media"><img src="assets/img/garrafas.jpg" alt="Paredões com fendas que lembram garrafas" loading="lazy"></div>
+                        <figcaption>
+                            <h4>As Garrafas <span>fendas internas</span></h4>
+                            <p>Paredões com fendas cujo formato interno lembra garrafas encaixadas na rocha.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="formation reveal">
+                        <div class="formation-media"><img src="assets/img/muralhas.jpg" alt="Muralhas de arenito que lembram um castelo" loading="lazy"></div>
+                        <figcaption>
+                            <h4>Muralhas e Torres <span>castelos de pedra</span></h4>
+                            <p>Paredes e torres de alturas variadas que fazem a paisagem lembrar uma cidade medieval.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <!-- Galeria -->
+                <div class="subsection-head reveal" style="margin-top: 110px;">
+                    <span class="eyebrow">Galeria</span>
+                    <h2 class="h-md">Vila Velha em Imagens</h2>
+                    <p>Clique em uma foto para ampliar e navegar pela galeria completa.</p>
+                </div>
+
+                <div class="gallery" id="gallery">
+                    <button class="gallery-item wide reveal" data-caption="Trilhas entre os arenitos do parque">
+                        <img src="assets/img/trilha.jpg" alt="Trilha de pedra entre formações rochosas" loading="lazy">
+                    </button>
+                    <button class="gallery-item reveal" data-caption="Paredões avermelhados de arenito">
+                        <img src="assets/img/garrafas.jpg" alt="Paredões avermelhados de arenito" loading="lazy">
+                    </button>
+                    <button class="gallery-item tall reveal" data-caption="Fenda profunda entre as rochas">
+                        <img src="assets/img/vv03.jpg" alt="Fenda profunda entre paredes de rocha" loading="lazy">
+                    </button>
+                    <button class="gallery-item reveal" data-caption="Textura colorida do arenito">
+                        <img src="assets/img/vv02.jpg" alt="Textura colorida do arenito" loading="lazy">
+                    </button>
+                    <button class="gallery-item reveal" data-caption="A Furna vista de cima">
+                        <img src="assets/img/furna.jpg" alt="Furna vista de cima" loading="lazy">
+                    </button>
+                    <button class="gallery-item reveal" data-caption="A Cabeça de Índio">
+                        <img src="assets/img/indio.jpg" alt="A Cabeça de Índio" loading="lazy">
+                    </button>
+                    <button class="gallery-item wide reveal" data-caption="A Lagoa Dourada">
+                        <img src="assets/img/lagoa.jpg" alt="A Lagoa Dourada" loading="lazy">
+                    </button>
+                    <button class="gallery-item reveal" data-caption="A Pedra da Bota">
+                        <img src="assets/img/bota.jpg" alt="A Pedra da Bota" loading="lazy">
+                    </button>
+                    <button class="gallery-item reveal" data-caption="Raízes e galhos sobre a rocha">
+                        <img src="assets/img/vv04.jpg" alt="Raízes e galhos sobre a rocha" loading="lazy">
+                    </button>
+                    <button class="gallery-item reveal" data-caption="A Taça, cartão-postal de Vila Velha">
+                        <img src="assets/img/taca.jpg" alt="A Taça, cartão-postal de Vila Velha" loading="lazy">
+                    </button>
+                    <button class="gallery-item reveal" data-caption="A Pedra do Camelo">
+                        <img src="assets/img/camelo.jpg" alt="A Pedra do Camelo" loading="lazy">
+                    </button>
+                    <button class="gallery-item reveal" data-caption="Muralhas de pedra">
+                        <img src="assets/img/muralhas.jpg" alt="Muralhas de pedra" loading="lazy">
+                    </button>
+                </div>
+
+                <div class="next-page-container reveal">
+                    <a href="#informacoes" class="btn btn-primary next-btn" data-tab="informacoes">
+                        Avançar para Informações <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- TAB: INFORMAÇÕES -->
+        <!-- ================= TAB: INFORMAÇÕES ================= -->
         <section id="informacoes" class="tab-section">
             <div class="container section-padding">
-                <div class="section-header">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Antes de ir</span>
                     <h2>Planeje sua Visita</h2>
                     <p>Tudo o que você precisa saber antes de ir ao parque.</p>
                 </div>
 
                 <div class="grid-2">
-                    <div class="info-block">
-                        <i class="fa-solid fa-clock"></i>
-                        <h4>Horários de Funcionamento</h4>
+                    <div class="info-block reveal">
+                        <div class="info-block-head">
+                            <i class="fa-solid fa-clock"></i>
+                            <h4>Horários de Funcionamento</h4>
+                        </div>
                         <p>Funciona todos os dias da semana, geralmente das <strong>8h às 17h</strong>. O horário pode
                             variar em feriados ou datas especiais. O parque abre cedo para garantir tempo suficiente na
                             exploração das trilhas.</p>
                     </div>
 
-                    <div class="info-block">
-                        <i class="fa-solid fa-ticket"></i>
-                        <h4>Ingressos e Custos</h4>
+                    <div class="info-block reveal">
+                        <div class="info-block-head">
+                            <i class="fa-solid fa-ticket"></i>
+                            <h4>Ingressos e Custos</h4>
+                        </div>
                         <p>O valor varia, geralmente ficando entre <strong>R$40 e R$90</strong> (inteira ou meia). O
                             ingresso permite visitar os arenitos, furnas e Lagoa Dourada. Estudantes, idosos e alguns
                             grupos têm direito à meia-entrada.</p>
                     </div>
 
-                    <div class="info-block">
-                        <i class="fa-solid fa-utensils"></i>
-                        <h4>Infraestrutura e Alimentação</h4>
+                    <div class="info-block reveal">
+                        <div class="info-block-head">
+                            <i class="fa-solid fa-utensils"></i>
+                            <h4>Infraestrutura e Alimentação</h4>
+                        </div>
                         <p>O local conta com centro de visitantes, lanchonete, restaurante, áreas de descanso, banheiro
                             e transporte interno para as atrações. Há refeições simples e mirantes para observar as
                             paisagens.</p>
                     </div>
 
-                    <div class="info-block">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <h4>Guias e Comunicação</h4>
+                    <div class="info-block reveal">
+                        <div class="info-block-head">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <h4>Guias e Comunicação</h4>
+                        </div>
                         <p>A presença de guias é recomendada, principalmente nas furnas e trilhas longas. O sinal de
                             celular é limitado pela natureza, mas o centro de visitantes possui acesso à internet.
                             Placas informativas ajudam na comunicação.</p>
                     </div>
                 </div>
 
-                <div class="next-page-container">
-                    <button class="cta-btn next-btn"
-                        onclick="document.querySelector('[data-tab=\'sustentabilidade\']').click()">Avançar para
-                        Sustentabilidade <i class="fa-solid fa-arrow-right"></i></button>
+                <!-- Como chegar -->
+                <div class="route reveal">
+                    <div class="route-info">
+                        <span class="eyebrow">Como chegar</span>
+                        <h3>A 90 km de Curitiba, pela BR-376</h3>
+                        <p>O parque fica a cerca de 20 km do centro de Ponta Grossa e a aproximadamente 90 km de
+                            Curitiba. O acesso principal é realizado pela Rodovia BR-376, e é possível chegar de carro
+                            ou por excursões turísticas.</p>
+                    </div>
+                    <ul class="route-facts">
+                        <li><i class="fa-solid fa-route"></i><span><strong>BR-376</strong>Acesso principal</span></li>
+                        <li><i class="fa-solid fa-car"></i><span><strong>20 km</strong>do centro de Ponta Grossa</span></li>
+                        <li><i class="fa-solid fa-city"></i><span><strong>90 km</strong>de Curitiba (PR)</span></li>
+                    </ul>
+                </div>
+
+                <!-- FAQ -->
+                <div class="subsection-head reveal" style="margin-top: 110px;">
+                    <span class="eyebrow">Dúvidas frequentes</span>
+                    <h2 class="h-md">Perguntas Frequentes</h2>
+                    <p>Respostas rápidas para as dúvidas mais comuns dos visitantes.</p>
+                </div>
+
+                <div class="faq">
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Qual é o horário de funcionamento?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>O parque funciona todos os dias da semana, geralmente das <strong>8h às 17h</strong>. O
+                                horário pode variar em feriados ou datas especiais.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Quanto custa a entrada?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>O valor varia, geralmente ficando entre <strong>R$40 e R$90</strong> (inteira ou meia).
+                                O ingresso permite visitar os arenitos, as furnas e a Lagoa Dourada. Estudantes, idosos
+                                e alguns grupos têm direito à meia-entrada.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Como chegar ao parque?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>O acesso principal é feito pela <strong>Rodovia BR-376</strong>. O parque fica a cerca de
+                                90 km de Curitiba e a aproximadamente 20 km do centro de Ponta Grossa. É possível chegar
+                                de carro ou por excursões turísticas.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Qual a melhor época para visitar?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>O clima é subtropical úmido, com verões moderadamente quentes e invernos frios, que podem
+                                registrar geadas. As chuvas são bem distribuídas ao longo do ano, por isso o parque pode
+                                ser visitado em qualquer estação &mdash; apenas vista roupas adequadas ao frio no inverno.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>É preciso contratar um guia?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>A presença de guias é <strong>recomendada</strong>, principalmente nas furnas e nas
+                                trilhas mais longas. Os guias oferecem informações valiosas sobre a formação geológica e
+                                a flora local.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Existe infraestrutura no local?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sim. O parque conta com centro de visitantes, lanchonete, restaurante, áreas de descanso,
+                                banheiros e transporte interno para as atrações. O centro de visitantes possui acesso à
+                                internet &mdash; o sinal de celular é limitado em meio à natureza.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="next-page-container reveal">
+                    <a href="#sustentabilidade" class="btn btn-primary next-btn" data-tab="sustentabilidade">
+                        Avançar para Sustentabilidade <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- TAB: SUSTENTABILIDADE -->
+        <!-- ================= TAB: SUSTENTABILIDADE ================= -->
         <section id="sustentabilidade" class="tab-section">
             <div class="container section-padding">
-                <div class="sustain-header">
+                <div class="sustain-header reveal">
                     <div class="sustain-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <span class="eyebrow">Preservação</span>
                     <h2>Sustentabilidade e Conservação</h2>
                     <p>Cuidar da natureza é o que garante o futuro do Parque Estadual de Vila Velha.</p>
                 </div>
 
-                <div class="sustain-content">
+                <div class="sustain-content reveal">
                     <div class="sustain-text">
                         <h3>O Papel de Cada Visitante</h3>
                         <p>A segurança dos visitantes e a preservação do meio ambiente caminham juntas no Parque.
@@ -210,60 +645,123 @@
                             beleza de Vila Velha continue encantando gerações futuras, estabelecemos algumas regras de
                             conduta vitais:</p>
                         <ul class="sustain-list">
-                            <li><i class="fa-regular fa-circle-check"></i> <strong>Não subir nas formações
-                                    rochosas:</strong> O arenito é extremamente frágil e a erosão humana causa danos
-                                irreversíveis aos monumentos naturais.</li>
-                            <li><i class="fa-regular fa-circle-check"></i> <strong>Não alimentar os animais:</strong> A
-                                fauna local deve manter seus hábitos naturais para um ecossistema equilibrado e seguro.
+                            <li><i class="fa-solid fa-circle-check"></i>
+                                <div><strong>Não subir nas formações rochosas:</strong> O arenito é extremamente frágil e a
+                                    erosão humana causa danos irreversíveis aos monumentos naturais.</div>
                             </li>
-                            <li><i class="fa-regular fa-circle-check"></i> <strong>Respeito às Áreas de Risco:</strong>
-                                Siga estritamente as placas de alerta, permanecendo nos caminhos delimitados.</li>
-                            <li><i class="fa-regular fa-circle-check"></i> <strong>Valorização Ecológica:</strong>
-                                Nossos guias oferecem informações valiosas sobre a formação geológica e a flora local,
-                                promovendo a educação ambiental durante o passeio.</li>
+                            <li><i class="fa-solid fa-circle-check"></i>
+                                <div><strong>Não alimentar os animais:</strong> A fauna local deve manter seus hábitos naturais
+                                    para um ecossistema equilibrado e seguro.</div>
+                            </li>
+                            <li><i class="fa-solid fa-circle-check"></i>
+                                <div><strong>Respeito às Áreas de Risco:</strong> Siga estritamente as placas de alerta,
+                                    permanecendo nos caminhos delimitados.</div>
+                            </li>
+                            <li><i class="fa-solid fa-circle-check"></i>
+                                <div><strong>Valorização Ecológica:</strong> Nossos guias oferecem informações valiosas sobre a
+                                    formação geológica e a flora local, promovendo a educação ambiental durante o passeio.</div>
+                            </li>
                         </ul>
-                        <div class="sustain-quote">
-                            "A natureza de Vila Velha levou milhões de anos para ser esculpida. Nossa missão é
-                            protegê-la a cada segundo."
-                        </div>
+                        <blockquote class="sustain-quote">
+                            &ldquo;A natureza de Vila Velha levou milhões de anos para ser esculpida. Nossa missão é
+                            protegê-la a cada segundo.&rdquo;
+                        </blockquote>
                     </div>
-                    <div class="sustain-image">
-                        <!-- CSS Background image will be applied here -->
-                    </div>
+                    <div class="sustain-image" role="img" aria-label="Vegetação e fungos sobre tronco no parque"></div>
+                </div>
+
+                <!-- Pilares -->
+                <div class="pillars">
+                    <article class="pillar reveal">
+                        <i class="fa-solid fa-seedling"></i>
+                        <h4>Educação Ambiental</h4>
+                        <p>Guias e placas informativas aproximam os visitantes da geologia e da flora do parque.</p>
+                    </article>
+                    <article class="pillar reveal">
+                        <i class="fa-solid fa-person-hiking"></i>
+                        <h4>Trilhas Sinalizadas</h4>
+                        <p>Caminhos delimitados protegem as rochas frágeis e garantem a segurança de todos.</p>
+                    </article>
+                    <article class="pillar reveal">
+                        <i class="fa-solid fa-binoculars"></i>
+                        <h4>Monitoramento</h4>
+                        <p>Equipes acompanham as áreas de risco e as trilhas, cuidando do patrimônio natural.</p>
+                    </article>
+                </div>
+
+                <div class="next-page-container reveal">
+                    <a href="#inicio" class="btn btn-outline next-btn" data-tab="inicio">
+                        <i class="fa-solid fa-house"></i> Voltar ao início
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- ================= FOOTER ================= -->
     <footer>
         <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo logo-light">
+                    <span class="logo-mark"><i class="fa-solid fa-leaf"></i></span>
+                    <span class="logo-text"><strong>Vila Velha</strong><small>Parque Estadual • PR</small></span>
+                </div>
+                <p>Um dos sítios geológicos mais impressionantes do Brasil, em Ponta Grossa — Paraná.</p>
+                <p class="footer-location"><i class="fa-solid fa-location-dot"></i> Rodovia BR-376 — Ponta Grossa/PR</p>
+            </div>
+
             <div class="students">
                 <h4>Equipe: Trupe</h4>
-                <h3>Integrantes:
-                    João Victor Ramos Pupo <br>
-                    Lucas Baumel Artero <br>
-                    Gabriel Kaique Correia da Luz <br>
-                    Gustavo dos Santos Araujo <br>
-                    Luis Claudio Pinheiro dos Santos <br>
-                    Bento de Mara <br>
-                </h3>
+                <ul class="crew-list">
+                    <li>João Victor Ramos Pupo</li>
+                    <li>Lucas Baumel Artero</li>
+                    <li>Gabriel Kaique Correia da Luz</li>
+                    <li>Gustavo dos Santos Araujo</li>
+                    <li>Luis Claudio Pinheiro dos Santos</li>
+                    <li>Bento de Mara</li>
+                </ul>
             </div>
+
             <div class="sources">
                 <h4>Fontes e Contatos</h4>
-                <ul>
-                    <li><a href="https://pt.wikipedia.org/wiki/Parque_Estadual_de_Vila_Velha" target="_blank">Wikipedia
-                            do Parque</a></li>
-                    <li><a href="https://www.sedest.pr.gov.br/" target="_blank">SEDEST PR</a></li>
-                    <li><a href="https://www.parana.pr.gov.br/" target="_blank">Governo do Paraná</a></li>
-                    <li>Email: parquevilavelha@meioambiente.pr.gov.br | Tel: (42) 3231-1336</li>
+                <ul class="source-list">
+                    <li><a href="https://pt.wikipedia.org/wiki/Parque_Estadual_de_Vila_Velha" target="_blank"
+                            rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Wikipedia do Parque</a></li>
+                    <li><a href="https://www.sedest.pr.gov.br/" target="_blank" rel="noopener"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i> SEDEST PR</a></li>
+                    <li><a href="https://www.parana.pr.gov.br/" target="_blank" rel="noopener"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i> Governo do Paraná</a></li>
+                    <li><a href="mailto:parquevilavelha@meioambiente.pr.gov.br"><i class="fa-solid fa-envelope"></i>
+                            parquevilavelha@meioambiente.pr.gov.br</a></li>
+                    <li><a href="tel:+554232311336"><i class="fa-solid fa-phone"></i> (42) 3231-1336</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Parque Estadual Vila Velha</p>
+            <p>&copy; 2026 Parque Estadual Vila Velha · Projeto educativo — Equipe Trupe</p>
         </div>
     </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Lightbox da galeria -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeria de fotos">
+        <button class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Fechar">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button class="lightbox-btn lightbox-nav prev" id="lightboxPrev" aria-label="Anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <figure class="lightbox-figure">
+            <img id="lightboxImg" src="" alt="">
+            <figcaption id="lightboxCaption"></figcaption>
+        </figure>
+        <button class="lightbox-btn lightbox-nav next" id="lightboxNext" aria-label="Próxima">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Publicação de Witmarsum.">
+    <meta name="theme-color" content="#142C21">
     <title>Postagem — Witmarsum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./assets/style/index.css">
     <script src="./assets/script/main.js" defer></script>
 </head>
@@ -16,8 +20,7 @@
             <hr>
             <div id="post-image-container"></div>
             <p id="post-content"></p>
-            <br>
-            <a href="index.html" class="btn">← Voltar ao início</a>
+            <a href="index.html" class="btn">Voltar ao início</a>
         </div>
         <div class="footer" id="footer"></div>
     </div>
@@ -29,7 +32,7 @@
             const post = posts.find(p => p.id === id);
 
             if (!post) {
-                document.getElementById("content").innerHTML = '<div class="hero"><h1>Postagem não encontrada</h1><p class="subtitle">A postagem que você procura não existe ou foi removida.</p><a href="index.html" class="btn">Voltar ao início</a></div>';
+                document.getElementById("content").innerHTML = '<header class="page-head"><p class="kicker">Erro 404</p><h1>Postagem não encontrada</h1><p class="page-lede">A postagem que você procura não existe ou foi removida.</p></header><a href="index.html" class="btn">Voltar ao início</a>';
                 return;
             }
 

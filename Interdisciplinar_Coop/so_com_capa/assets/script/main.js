@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     loadPosts();
+    observeReveal();
     const imageInput = document.getElementById("post-image");
     if (imageInput) {
         imageInput.addEventListener("change", function() {
@@ -85,32 +86,45 @@ function loadPosts() {
     let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
     if (posts.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-muted); padding: 24px; text-align: center;">Nenhuma postagem ainda. Seja o primeiro a publicar!</p>';
+        container.innerHTML = '<div class="posts-empty"><p>Nenhuma postagem ainda. Seja o primeiro a compartilhar uma novidade sobre Witmarsum.</p><a href="newpost.html" class="btn">Publicar a primeira</a></div>';
         return;
     }
 
     posts.reverse().forEach(post => {
-        const postElement = document.createElement("div");
-        postElement.classList.add("post");
+        const postElement = document.createElement("article");
+        postElement.classList.add("post", "reveal");
 
-        const imageHtml = post.image
-            ? `<img src="${post.image}" alt="${post.title}" class="post-thumbnail">`
-            : "";
+        const title = document.createElement("h3");
+        title.textContent = post.title;
 
-        postElement.innerHTML = `
-            ${imageHtml}
-            <h3>${post.title}</h3>
-            <small>${post.date}</small>
-            <div class="post-buttons">
-                <a href="post.html?id=${post.id}">
-                    <button class="btn">Ver postagem</button>
-                </a>
-                <button class="btn btn-danger" onclick="deletePost(${post.id})">Deletar</button>
-            </div>
+        const date = document.createElement("small");
+        date.textContent = post.date;
+
+        if (post.image) {
+            const img = document.createElement("img");
+            img.src = post.image;
+            img.alt = post.title;
+            img.className = "post-thumbnail";
+            postElement.appendChild(img);
+        }
+
+        postElement.appendChild(title);
+        postElement.appendChild(date);
+
+        const buttons = document.createElement("div");
+        buttons.className = "post-buttons";
+        buttons.innerHTML = `
+            <a href="post.html?id=${post.id}">
+                <button class="btn">Ver postagem</button>
+            </a>
+            <button class="btn btn-danger" onclick="deletePost(${post.id})">Deletar</button>
         `;
+        postElement.appendChild(buttons);
 
         container.appendChild(postElement);
     });
+
+    observeReveal();
 }
 
 function deletePost(id) {
@@ -127,10 +141,73 @@ function deletePost(id) {
     loadPosts();
 }
 
+/* ========== NAVBAR / MENU ========== */
+function setupNavbar() {
+    const navbar = document.getElementById("navbar");
+    const toggle = document.getElementById("nav-toggle");
+    const links = navbar.querySelectorAll(".nav-menu a");
+
+    // Destaque do link da página atual
+    const current = window.location.pathname.split("/").pop() || "index.html";
+    links.forEach(link => {
+        const href = link.getAttribute("href");
+            if (href === current || (current === "post.html" && href === "index.html")) {
+            link.classList.add("active");
+        }
+    });
+
+    // Navbar compacta ao rolar
+    const onScroll = () => navbar.classList.toggle("is-scrolled", window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    if (toggle) {
+        toggle.addEventListener("click", () => {
+            const open = navbar.classList.toggle("nav-open");
+            toggle.setAttribute("aria-expanded", open);
+            toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+        });
+
+        // Fecha o menu ao navegar
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                navbar.classList.remove("nav-open");
+                toggle.setAttribute("aria-expanded", "false");
+            });
+        });
+    }
+}
+
+/* ========== ANIMAÇÃO DE ENTRADA ========== */
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function observeReveal() {
+    const items = document.querySelectorAll(".reveal:not(.visible)");
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+        items.forEach(item => item.classList.add("visible"));
+        return;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                entry.target.style.transitionDelay = `${Math.min(index * 60, 300)}ms`;
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    items.forEach(item => observer.observe(item));
+}
+
+/* ========== FAVICON ========== */
+
 fetch("./partials/navbar.html")
     .then(res => res.text())
     .then(data => {
         document.getElementById("navbar").innerHTML = data;
+        setupNavbar();
     });
 
 fetch("./partials/footer.html")

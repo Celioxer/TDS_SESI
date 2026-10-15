@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Entre em contato com a equipe do projeto Cooperativismo e Sustentabilidade. Envie sua mensagem, dúvida ou sugestão.">
+  <meta name="theme-color" content="#0b3d2c">
+  <title>Contato | Cooperativismo e Sustentabilidade</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Página inicial">
+        <span class="brand__mark">CS</span>
+        <span class="brand__text">
+          <strong>Cooperativismo</strong>
+          <small>&amp; SUSTENTABILIDADE</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menu"
+              aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
+          <li><a href="carambei.html">Carambeí</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================= HERO ======================= -->
+  <section class="hero hero--compact">
+    <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80')"></div>
+    <div class="container hero__inner">
+      <p class="breadcrumb"><a href="index.html">Início</a> / Contato</p>
+      <h1>Entre em contato</h1>
+      <p>
+        Tem dúvidas, sugestões ou quer contribuir com o projeto? Envie sua
+        mensagem — teremos prazer em responder.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================= CONTATO ======================= -->
+  <section class="section">
+    <div class="container contact-grid">
+
+      <!-- Formulário -->
+      <div class="form-card reveal">
+        <h2 style="font-size:1.5rem;margin-bottom:.4rem">Envie sua mensagem</h2>
+        <p style="color:var(--texto-suave);margin-bottom:1.6rem">
+          Preencha o formulário abaixo. Os campos marcados são obrigatórios.
+        </p>
+
+        <form data-contact-form novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="nome">Nome *</label>
+              <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" autocomplete="name" required>
+              <span class="field__error">Informe seu nome.</span>
+            </div>
+            <div class="field">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" placeholder="voce@email.com" autocomplete="email" required>
+              <span class="field__error">Informe um e-mail válido.</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto">
+              <option value="">Selecione um assunto</option>
+              <option>Dúvida sobre cooperativismo</option>
+              <option>Dúvida sobre sustentabilidade</option>
+              <option>Sobre Carambeí</option>
+              <option>Sugestão para o site</option>
+              <option>Outro</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" required></textarea>
+            <span class="field__error">Escreva sua mensagem.</span>
+          </div>
+
+          <button class="btn" type="submit">✉️ Enviar mensagem</button>
+
+          <p class="form-note">
+            Este é um site educacional: a mensagem é validada no navegador e não é
+            enviada a nenhum servidor.
+          </p>
+
+          <div class="form-success" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <!-- Informações -->
+      <aside class="reveal">
+        <div class="info-card">
+          <div class="info-card__icon">📍</div>
+          <div>
+            <h4>Localização</h4>
+            <p>Carambeí — Paraná, Brasil</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__icon">✉️</div>
+          <div>
+            <h4>E-mail</h4>
+            <p><a href="mailto:contato@cooperativismo.edu.br">contato@cooperativismo.edu.br</a></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__icon">🏫</div>
+          <div>
+            <h4>Instituição</h4>
+            <p>Projeto escolar · Ensino Médio</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__icon">👥</div>
+          <div>
+            <h4>Equipe</h4>
+            <p>Ana Costa · Isadora Barbosa<br>Isadora Lima · Cauã Maciel</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__icon">⏱️</div>
+          <div>
+            <h4>Tempo de resposta</h4>
+            <p>Sempre que possível, respondemos em até 48 horas.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ======================= FAQ ======================= -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Dúvidas frequentes</span>
+        <h2>Perguntas e respostas</h2>
+        <p>Reunimos as perguntas mais comuns sobre o tema e sobre o projeto.</p>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            O que é uma cooperativa?
+          </button>
+          <div class="faq__a">
+            <p>
+              É uma organização formada por pessoas que se reúnem de forma
+              voluntária para atender necessidades comuns, com gestão
+              democrática e participação econômica de todos os cooperados.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            Qual é a relação entre cooperativismo e sustentabilidade?
+          </button>
+          <div class="faq__a">
+            <p>
+              O cooperativismo valoriza o bem-estar da comunidade e o cuidado
+              com os recursos naturais. Por isso, princípios de cooperação e de
+              sustentabilidade caminham juntos, buscando desenvolvimento sem
+              prejudicar as próximas gerações.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            Por que Carambeí é importante para este estudo?
+          </button>
+          <div class="faq__a">
+            <p>
+              Porque a cidade nasceu da cooperação entre imigrantes holandeses e
+              se desenvolveu com base em cooperativas agrícolas, sendo um exemplo
+              real de como a união de pessoas transforma uma região.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            Este site é oficial?
+          </button>
+          <div class="faq__a">
+            <p>
+              Não. Este é um trabalho escolar, criado com fins educacionais para
+              estudar e divulgar o tema de cooperativismo e sustentabilidade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__brand">
+          <div class="brand" style="margin-bottom:1rem">
+            <span class="brand__mark">CS</span>
+            <span class="brand__text">
+              <strong>Cooperativismo</strong>
+              <small>&amp; SUSTENTABILIDADE</small>
+            </span>
+          </div>
+          <p>
+            Um estudo sobre como a cooperação pode construir um futuro mais
+            sustentável, usando Carambeí (PR) como ponto de partida.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
+            <li><a href="carambei.html">Carambeí</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Temas</h4>
+          <ul>
+            <li><a href="index.html">Cooperação</a></li>
+            <li><a href="sustentabilidade.html">Meio ambiente</a></li>
+            <li><a href="sustentabilidade.html">ODS da ONU</a></li>
+            <li><a href="carambei.html">Agricultura</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Integrantes</h4>
+          <ul>
+            <li><a class="member-link" href="https://www.instagram.com/__anacostaa/" target="_blank" rel="noopener noreferrer">Ana Costa</a></li>
+            <li><a class="member-link" href="https://www.instagram.com/isadorabaarbosa_/" target="_blank" rel="noopener noreferrer">Isadora Barbosa</a></li>
+            <li><a class="member-link" href="https://www.instagram.com/iisa_rdl/" target="_blank" rel="noopener noreferrer">Isadora Lima</a></li>
+            <li><a class="member-link" href="https://www.instagram.com/maciiell.caua/" target="_blank" rel="noopener noreferrer">Cauã Maciel</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span data-ano>2026</span> <strong>Cooperativismo &amp; Sustentabilidade</strong> · Projeto escolar</span>
+        <span>Feito com dedicação para fins educacionais 💚</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Voltar ao topo">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

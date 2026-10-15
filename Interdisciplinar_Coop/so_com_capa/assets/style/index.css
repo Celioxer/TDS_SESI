@@ -981,6 +981,19 @@ h1, h2, h3 {
     margin: 1px 0;
 }
 
+.footer-developers a {
+    color: rgba(247, 244, 238, 0.55);
+    text-decoration: none;
+    transition: color var(--motion-fast) ease;
+}
+
+.footer-developers a:hover {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--gold);
+}
+
 .footer-bottom {
     padding-top: 18px;
     border-top: 1px solid var(--line-dark);

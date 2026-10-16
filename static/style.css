@@ -1,5 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+/* =========================================
+   Importação de Fontes (Inter e Montserrat)
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap');
 
+/* =========================================
+   Variáveis de Cores
+   ========================================= */
 :root {
     --senai-blue: #005594;
     --senai-blue-dark: #003d6b;
@@ -8,6 +14,18 @@
     --text-dark: #2d3748;
     --text-light: #718096;
     --card-bg: #ffffff;
+}
+
+/* =========================================
+   Reset Universal (Evita barra de rolagem horizontal)
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -21,23 +39,24 @@ body {
 }
 
 /* =========================================
-   Header Styles 
+   Header Styles (Unificado)
    ========================================= */
 .main-header {
-    background-color: var(--senai-blue);
+    background-color: #0A3D62; /* Cor azul institucional */
     color: white;
-    padding: 20px 0;
+    padding: 30px 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border-bottom: 4px solid var(--senai-red);
+    text-align: center;
 }
 
 .header-content {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     align-items: center;
-    gap: 25px;
+    justify-content: center;
+    gap: 20px;
 }
 
 .logo-senai {
@@ -51,31 +70,24 @@ body {
 .header-titles {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .header-titles h1 {
-    font-size: 1.8rem;
-    margin: 0 0 5px 0;
-    color: white;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    font-size: 2.2rem;
+    margin: 0 0 5px 0;
+    letter-spacing: -0.5px;
+    color: white;
 }
 
 .header-titles p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #E0E0E0;
     margin: 0;
-    font-size: 1.05rem;
-    color: #e2e8f0;
-    font-weight: 300;
-}
-.main-header {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center;     /* Centraliza o conteúdo verticalmente (se houver altura fixa) */
-    padding: 20px 0;         /* Espaçamento interno superior e inferior */
-}
-
-.header-titles {
-    text-align: center;      /* Garante que os textos (h1 e p) fiquem alinhados ao centro */
 }
 
 /* =========================================
@@ -97,6 +109,7 @@ body {
     font-size: 2.2rem;
     color: var(--senai-blue-dark);
     margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif; /* Aplicando Montserrat nos títulos das seções também */
 }
 
 .intro-section p {
@@ -163,6 +176,7 @@ body {
     color: var(--senai-blue);
     font-size: 1.4rem;
     font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .card-grupo p {
@@ -267,14 +281,21 @@ body {
     padding: 5px;
 }
 
+/* =========================================
+   Responsividade (Mobile)
+   ========================================= */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
+        flex-direction: column; /* Empilha elementos no celular */
         text-align: center;
     }
     
     .header-titles h1 {
-        font-size: 1.4rem;
+        font-size: 1.6rem; /* Fonte menor para não quebrar no celular */
+    }
+
+    .header-titles p {
+        font-size: 1rem;
     }
 
     .footer-content {
@@ -301,31 +322,4 @@ body {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-}
-/* Configuração geral para o cabeçalho */
-.main-header {
-    /* Cores de exemplo (azul corporativo comum em instituições) */
-    background-color: #0A3D62; 
-    color: #FFFFFF;
-    padding: 40px 20px;
-    text-align: center;
-    font-family: 'Inter', sans-serif; /* Fonte base para a seção */
-}
-
-/* Estilização do Título Principal */
-.header-titles h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    letter-spacing: -0.5px; /* Deixa o título mais compacto e moderno */
-}
-
-/* Estilização do Subtítulo/Texto */
-.header-titles p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 1.1rem;
-    color: #E0E0E0; /* Um tom ligeiramente mais claro que o branco para hierarquia visual */
-    margin: 0;
 }

@@ -66,6 +66,17 @@ body {
     color: #e2e8f0;
     font-weight: 300;
 }
+.main-header {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center;     /* Centraliza o conteúdo verticalmente (se houver altura fixa) */
+    padding: 20px 0;         /* Espaçamento interno superior e inferior */
+}
+
+.header-titles {
+    text-align: center;      /* Garante que os textos (h1 e p) fiquem alinhados ao centro */
+}
 
 /* =========================================
    Container & Typography 

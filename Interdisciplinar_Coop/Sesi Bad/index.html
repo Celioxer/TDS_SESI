@@ -4,109 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descubra Witmarsum | Turismo e Cultura</title>
+    <meta name="description" content="Guia turístico da Colônia Witmarsum, em Palmeira (PR): clima, acesso, horários, gastronomia alemã, atrativos e ecoturismo.">
+    <meta name="theme-color" content="#3a2a5e">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        
-        .dev-team {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-            padding: 20px;
-        }
-        .dev-name {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            border: 1px solid var(--accent);
-        }
-    </style>
 </head>
 <body>
+    <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
-    <header>
-        <nav id="navbar">
-            <div class="logo">Witmarsum</div>
-            <ul class="nav-links">
+    <header class="topo">
+        <nav id="navbar" aria-label="Principal">
+            <a class="logo" href="#inicio">Witmarsum</a>
+            <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="menu">
                 <li><a href="#geografia">Clima</a></li>
-                <li><a href="#localizacao">Localização</a></li>
+                <li><a href="#localizacao">Como chegar</a></li>
+                <li><a href="#ingresso">Visita</a></li>
                 <li><a href="#gastronomia">Gastronomia</a></li>
                 <li><a href="#atrativos">Atrativos</a></li>
-                <li><a href="#sustentabilidade">Sustentabilidade</a></li> </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
+                <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+            </ul>
         </nav>
-        <div class="hero">
-            <h1>Colônia Witmarsum</h1>
-            <p>Tradição alemã e tranquilidade no coração do Paraná.</p>
-            <a href="#atrativos" class="btn">Explorar</a>
+
+        <div class="hero" id="inicio">
+            <svg class="paisagem" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                <defs>
+                    <linearGradient id="ceu" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#3a2a5e"/>
+                        <stop offset="1" stop-color="#9b86cf"/>
+                    </linearGradient>
+                </defs>
+                <rect width="1200" height="420" fill="url(#ceu)"/>
+                <path d="M0 250 Q250 190 520 235 T1200 215 V420 H0Z" fill="#6f5aa6"/>
+                <path d="M0 295 Q300 240 640 285 T1200 265 V420 H0Z" fill="#7d63b8"/>
+                <path d="M0 345 Q320 300 700 335 T1200 320 V420 H0Z" fill="#8a6bc2"/>
+                <g stroke="#cdbcf0" stroke-width="2" fill="none" opacity=".75">
+                    <path d="M0 360 Q320 318 700 350 T1200 336"/>
+                    <path d="M0 378 Q320 338 700 368 T1200 354"/>
+                    <path d="M0 396 Q320 358 700 386 T1200 372"/>
+                    <path d="M0 414 Q320 378 700 404 T1200 390"/>
+                </g>
+            </svg>
+            <div class="hero-texto">
+                <h1>Colônia Witmarsum</h1>
+                <p>Tradição alemã e tranquilidade no coração do Paraná.</p>
+                <a href="#atrativos" class="btn">Ver atrativos</a>
+            </div>
         </div>
     </header>
 
-    <main>
+    <main id="conteudo">
+        <section class="resumo" aria-label="Informações rápidas">
+            <dl>
+                <div><dt>Onde fica</dt><dd>Palmeira, PR</dd></div>
+                <div><dt>Distância</dt><dd>60 km de Curitiba, 50 km de Ponta Grossa</dd></div>
+                <div><dt>Entrada</dt><dd>Gratuita na colônia</dd></div>
+                <div><dt>Funcionamento</dt><dd>Terça a domingo, 9h às 18h</dd></div>
+            </dl>
+        </section>
+
         <section id="geografia" class="section">
             <h2>Clima e Geografia</h2>
-            <p>Localizada no Segundo Planalto Paranaense, a região possui um relevo suavemente ondulado com campos limpos. O clima é o Cfb (subtropical úmido), com verões amenos e invernos rigorosos, propício para um café colonial aconchegante.</p>
+            <div class="texto">
+                <p>Localizada no Segundo Planalto Paranaense, a região possui um relevo suavemente ondulado com campos limpos. O clima é o Cfb (subtropical úmido), com verões amenos e invernos rigorosos, propício para um café colonial aconchegante.</p>
+            </div>
         </section>
 
         <section id="localizacao" class="section bg-light">
             <h2>Localização e Acesso</h2>
-            <p>Witmarsum fica no município de Palmeira, PR. O acesso principal é pela <strong>BR-376</strong>, a cerca de 60km de Curitiba e 50km de Ponta Grossa. A estrada é duplicada e bem sinalizada.</p>
+            <div class="texto">
+                <p>Witmarsum fica no município de Palmeira, PR. O acesso principal é pela <strong>BR-376</strong>, a cerca de 60 km de Curitiba e 50 km de Ponta Grossa. A estrada é duplicada e bem sinalizada.</p>
+            </div>
         </section>
 
         <section id="ingresso" class="section">
             <h2>Ingresso e Funcionamento</h2>
-            <p>A entrada na colônia é gratuita. No entanto, museus e propriedades privadas (campos de lavanda, trilhas) podem cobrar taxas específicas. O comércio funciona majoritariamente de <strong>terça a domingo, das 09h às 18h</strong>.</p>
+            <div class="texto">
+                <p>A entrada na colônia é gratuita. No entanto, museus e propriedades privadas (campos de lavanda, trilhas) podem cobrar taxas específicas. O comércio funciona majoritariamente de <strong>terça a domingo, das 09h às 18h</strong>.</p>
+            </div>
         </section>
 
         <section id="comunicacao" class="section bg-light">
             <h2>Comunicação e Internet</h2>
-            <p>A vila principal possui boa cobertura 4G, e a maioria dos estabelecimentos oferece Wi-Fi gratuito para clientes. Em áreas rurais mais afastadas, o sinal pode oscilar.</p>
+            <div class="texto">
+                <p>A vila principal possui boa cobertura 4G, e a maioria dos estabelecimentos oferece Wi-Fi gratuito para clientes. Em áreas rurais mais afastadas, o sinal pode oscilar.</p>
+            </div>
         </section>
 
         <section id="infraestrutura" class="section">
             <h2>Infraestrutura e Segurança</h2>
-            <p>A colônia é extremamente segura e tranquila. Conta com postos de combustível próximos, pousadas charmosas e atendimento médico básico. É um ambiente familiar e acolhedor.</p>
+            <div class="texto">
+                <p>A colônia é extremamente segura e tranquila. Conta com postos de combustível próximos, pousadas charmosas e atendimento médico básico. É um ambiente familiar e acolhedor.</p>
+            </div>
         </section>
 
         <section id="gastronomia" class="section bg-light">
             <h2>Alimentação e Gastronomia</h2>
-            <p>O ponto alto é o famoso <strong>Eisbein</strong> (joelho de porco) e as tortas alemãs. Não deixe de visitar as confeitarias para o tradicional Café Colonial e degustar as cervejas artesanais locais.</p>
+            <div class="texto">
+                <p>O ponto alto é o famoso <strong>Eisbein</strong> (joelho de porco) e as tortas alemãs. Não deixe de visitar as confeitarias para o tradicional Café Colonial e degustar as cervejas artesanais locais.</p>
+                <ul class="pratos">
+                    <li>Eisbein</li>
+                    <li>Tortas alemãs</li>
+                    <li>Café colonial</li>
+                    <li>Cervejas artesanais</li>
+                </ul>
+            </div>
         </section>
 
         <section id="atrativos" class="section">
             <h2>Atrativos e Guias</h2>
-            <p>Visite o Museu Histórico de Witmarsum e as igrejas locais. Para trilhas e áreas de preservação, a <strong>presença de guias</strong> é recomendável para enriquecer a experiência histórica, embora a vila possa ser explorada de forma autônoma.</p>
+            <div class="texto">
+                <p>Visite o Museu Histórico de Witmarsum e as igrejas locais. Para trilhas e áreas de preservação, a <strong>presença de guias</strong> é recomendável para enriquecer a experiência histórica, embora a vila possa ser explorada de forma autônoma.</p>
+            </div>
         </section>
+
         <section id="sustentabilidade" class="section eco-section">
-            <div class="eco-content">
-                <h2>Sustentabilidade e Ecoturismo</h2>
+            <h2>Sustentabilidade e Ecoturismo</h2>
+            <div class="texto">
                 <p>Witmarsum preserva suas raízes não apenas na cultura, mas no respeito à terra. Praticamos o turismo consciente:</p>
                 <ul class="eco-list">
-                    <li><strong>Preservação de Trilhas:</strong> Caminhadas guiadas para evitar a erosão do solo.</li>
-                    <li><strong>Produção Local:</strong> Incentivo ao consumo de produtos orgânicos e artesanais da colônia.</li>
-                    <li><strong>Gestão de Resíduos:</strong> Pontos de coleta seletiva espalhados pela vila principal.</li>
+                    <li><strong>Preservação de trilhas:</strong> caminhadas guiadas para evitar a erosão do solo.</li>
+                    <li><strong>Produção local:</strong> incentivo ao consumo de produtos orgânicos e artesanais da colônia.</li>
+                    <li><strong>Gestão de resíduos:</strong> pontos de coleta seletiva espalhados pela vila principal.</li>
                 </ul>
-                <div class="eco-badge">Destino Eco-Friendly</div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container-footer" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-            <h3>Equipe de Desenvolvimento</h3>
-            <div class="dev-team">
-                <div class="dev-name">Enzo Oliveira</div>
-                <div class="dev-name">Emanuel Galvão</div>
-                <div class="dev-name">Mateus Beik</div>
-                <div class="dev-name">Murilo Machado</div>
-            </div>
-            <p style="margin-top: 40px; opacity: 0.8;">&copy; 2026 Descubra Witmarsum. Explore com moderação e respeito à cultura local.</p>
+        <div class="footer-in">
+            <h2>Equipe de Desenvolvimento</h2>
+            <ul class="dev-team">
+                <li><a href="https://www.instagram.com/oliveira_.enzo/" target="_blank" rel="noopener noreferrer" aria-label="Enzo Oliveira no Instagram (abre em nova aba)">Enzo Oliveira</a></li>
+                <li><a href="https://www.instagram.com/_souzaemanuel_/" target="_blank" rel="noopener noreferrer" aria-label="Emanuel Galvão no Instagram (abre em nova aba)">Emanuel Galvão</a></li>
+                <li><a href="https://www.instagram.com/mateusbeik/" target="_blank" rel="noopener noreferrer" aria-label="Mateus Beik no Instagram (abre em nova aba)">Mateus Beik</a></li>
+                <li><a href="https://www.instagram.com/murilo.mcdo/" target="_blank" rel="noopener noreferrer" aria-label="Murilo Machado no Instagram (abre em nova aba)">Murilo Machado</a></li>
+            </ul>
+            <p class="copy">&copy; 2026 Descubra Witmarsum. Explore com moderação e respeito à cultura local.</p>
         </div>
     </footer>
 

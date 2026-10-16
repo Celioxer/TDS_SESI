@@ -1,139 +1,153 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --ink: #241f2b;
+    --plum: #3a2a5e;
+    --lav: #8a6bc2;
+    --lav-soft: #cdbcf0;
+    --mist: #f1effa;
+    --paper: #fbfaff;
+    --line: #d9d3ee;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Source Sans 3", system-ui, sans-serif;
 }
 
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    scroll-behavior: smooth;
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--paper);
 }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--lav); outline-offset: 3px; }
 
-/* Header & Hero */
-header {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://muraldoparana.com.br/wp-content/uploads/2017/12/96-Col%C3%B4nia-Witmarsum.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    color: white;
+.skip {
+    position: absolute; left: 12px; top: -60px; z-index: 100;
+    background: var(--paper); color: var(--plum);
+    padding: 10px 16px; border-radius: 6px;
 }
+.skip:focus { top: 12px; }
 
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 8vh;
-    background: rgba(46, 58, 41, 0.9);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+/* Navegação */
+#navbar {
+    position: fixed; inset: 0 0 auto 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(16px, 4vw, 48px); height: 64px;
+    background: transparent; transition: background .3s, box-shadow .3s;
 }
-
+#navbar.scrolled { background: var(--plum); box-shadow: 0 2px 14px rgba(36, 31, 43, .25); }
 .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: var(--serif); font-weight: 800; font-size: 1.5rem;
+    color: #fff; text-decoration: none;
 }
-
-.nav-links {
-    display: flex;
-    list-style: none;
+.nav-links { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+    display: block; padding: 8px 12px; border-radius: 6px;
+    color: #fff; text-decoration: none; font-weight: 600; font-size: 1rem;
 }
+.nav-links a:hover { background: rgba(255, 255, 255, .15); }
+.nav-links a.ativo { background: #fff; color: var(--plum); }
 
-.nav-links li a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-.nav-links li a:hover {
-    color: #a8b78d;
-}
-
-.hero {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-}
-
-.btn {
-    margin-top: 20px;
-    padding: 12px 30px;
-    background: #5d6d4e;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.btn:hover {
-    background: #4a573e;
-}
-
-/* Sections */
-.section {
-    padding: 80px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.bg-light {
-    background-color: #f9f9f9;
-    max-width: 100%;
-}
-
-h2 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
-    color: #2e3a29;
-}
-
-/* Footer */
-footer {
-    background: #2e3a29;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Mobile Menu */
 .burger {
-    display: none;
-    cursor: pointer;
+    display: none; background: none; border: 0; padding: 10px; cursor: pointer;
+}
+.burger span {
+    display: block; width: 26px; height: 3px; margin: 5px 0;
+    background: #fff; border-radius: 2px; transition: transform .25s, opacity .25s;
+}
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Hero */
+.hero {
+    position: relative; min-height: 100svh; display: grid; align-items: center;
+    background: var(--plum); color: #fff; overflow: hidden;
+}
+.paisagem { position: absolute; inset: auto 0 0 0; width: 100%; height: 62%; }
+.hero-texto {
+    position: relative; padding: 110px clamp(20px, 6vw, 80px) 30vh;
+    max-width: 820px; animation: entrada .9s ease-out both;
+}
+.hero h1 {
+    font-family: var(--serif); font-weight: 800;
+    font-size: clamp(2.8rem, 9vw, 6rem); line-height: 1.02; margin: 0 0 18px;
+}
+.hero p { font-size: clamp(1.1rem, 2.5vw, 1.45rem); max-width: 30ch; margin: 0 0 28px; }
+.btn {
+    display: inline-block; padding: 14px 28px; border-radius: 999px;
+    background: #fff; color: var(--plum); font-weight: 600; text-decoration: none;
+    transition: background .2s, transform .2s;
+}
+.btn:hover { background: var(--lav-soft); transform: translateY(-2px); }
+@keyframes entrada { from { opacity: 0; transform: translateY(24px); } }
+
+/* Resumo */
+.resumo { background: var(--mist); border-bottom: 1px solid var(--line); }
+.resumo dl {
+    max-width: 1100px; margin: 0 auto; padding: 28px 20px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px 32px;
+}
+.resumo dt { font-size: .95rem; color: var(--plum); font-weight: 600; }
+.resumo dd { margin: 2px 0 0; font-family: var(--serif); font-weight: 600; font-size: 1.15rem; line-height: 1.35; }
+
+/* Seções */
+.section {
+    display: grid; grid-template-columns: minmax(180px, 1fr) minmax(0, 2fr);
+    gap: 16px clamp(24px, 6vw, 80px);
+    padding: clamp(48px, 8vw, 96px) max(20px, calc((100% - 1100px) / 2));
+}
+.section h2 {
+    font-family: var(--serif); font-weight: 800; color: var(--plum);
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem); line-height: 1.15; margin: 0;
+}
+.texto { max-width: 62ch; }
+.texto p { margin: 0 0 1em; }
+.bg-light { background: var(--mist); }
+
+.pratos { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.pratos li {
+    padding: 8px 18px; border: 2px solid var(--lav); border-radius: 999px;
+    color: var(--plum); font-weight: 600;
 }
 
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px;
-}
+/* Sustentabilidade */
+.eco-section { background: var(--plum); color: #fff; }
+.eco-section h2 { color: #fff; }
+.eco-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 18px; }
+.eco-list li { padding-left: 18px; border-left: 4px solid var(--lav-soft); }
 
-@media screen and (max-width: 768px) {
+/* Rodapé */
+footer { background: var(--ink); color: #fff; padding: 56px 20px 32px; }
+.footer-in { max-width: 1100px; margin: 0 auto; }
+footer h2 { font-family: var(--serif); font-size: 1.4rem; margin: 0 0 20px; }
+.dev-team {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;
+}
+.dev-team li { border: 1px solid var(--lav); border-radius: 8px; transition: background .2s, border-color .2s; }
+.dev-team a { display: block; padding: 12px 16px; color: inherit; text-decoration: none; border-radius: 8px; }
+.dev-team li:hover, .dev-team li:focus-within { background: rgba(255, 255, 255, .1); border-color: #fff; }
+.dev-team a:hover, .dev-team a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.copy { margin: 40px 0 0; font-size: .95rem; opacity: .8; }
+
+/* Celular */
+@media (max-width: 820px) {
+    .burger { display: block; }
     .nav-links {
-        display: none;
+        position: absolute; top: 64px; left: 0; right: 0; flex-direction: column;
+        background: var(--plum); padding: 8px 16px 20px; gap: 2px;
+        transform: translateY(-8px); opacity: 0; visibility: hidden;
+        transition: opacity .2s, transform .2s, visibility .2s;
     }
-    .burger {
-        display: block;
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+    .nav-links.aberto { opacity: 1; transform: none; visibility: visible; }
+    .nav-links a { padding: 14px 12px; }
+    .section { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
 }

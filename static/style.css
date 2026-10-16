@@ -302,3 +302,30 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+/* Configuração geral para o cabeçalho */
+.main-header {
+    /* Cores de exemplo (azul corporativo comum em instituições) */
+    background-color: #0A3D62; 
+    color: #FFFFFF;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif; /* Fonte base para a seção */
+}
+
+/* Estilização do Título Principal */
+.header-titles h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px; /* Deixa o título mais compacto e moderno */
+}
+
+/* Estilização do Subtítulo/Texto */
+.header-titles p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #E0E0E0; /* Um tom ligeiramente mais claro que o branco para hierarquia visual */
+    margin: 0;
+}

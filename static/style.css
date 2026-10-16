@@ -1,86 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+:root {
+    --senai-blue: #005594;
+    --senai-blue-dark: #003d6b;
+    --senai-red: #ED1C24;
+    --bg-color: #f4f7f9;
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --card-bg: #ffffff;
+}
 
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    background-color: #f4f7f9;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* =========================================
+   Header Styles 
+   ========================================= */
+.main-header {
+    background-color: var(--senai-blue);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid var(--senai-red);
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo-senai {
+    height: 60px;
+    object-fit: contain;
+    background-color: white;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.header-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-titles h1 {
+    font-size: 1.8rem;
+    margin: 0 0 5px 0;
+    color: white;
+    font-weight: 700;
+}
+
+.header-titles p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #e2e8f0;
+    font-weight: 300;
+}
+
+/* =========================================
+   Container & Typography 
+   ========================================= */
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 50px 20px;
+    flex: 1;
 }
 
+.intro-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.intro-section h2 {
+    font-size: 2.2rem;
+    color: var(--senai-blue-dark);
+    margin-bottom: 10px;
+}
+
+.intro-section p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   Grid dos Alunos (3 colunas)
+   ========================================= */
 .grid-alunos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
+@media (max-width: 900px) {
+    .grid-alunos { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .grid-alunos { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   Cards dos Projetos
+   ========================================= */
 .card-grupo {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 12px;
-    border-left: 6px solid #005594;
-    padding: 24px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 30px 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 10px 15px rgba(0, 0, 0, 0.02);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,85,148,0.1);
+}
+
+/* Linha inferior decorativa animada */
+.card-grupo::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--senai-red);
+    transition: width 0.4s ease;
 }
 
 .card-grupo:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0, 85, 148, 0.1);
-    border-left-color: #ED1C24;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 85, 148, 0.15);
+    border-color: rgba(0,85,148,0.3);
+}
+
+.card-grupo:hover::before {
+    width: 100%;
 }
 
 .card-grupo h3 {
     margin: 0 0 10px 0;
-    color: #005594;
-    font-size: 1.25rem;
+    color: var(--senai-blue);
+    font-size: 1.4rem;
     font-weight: 700;
 }
 
 .card-grupo p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    flex-grow: 1;
 }
 
+/* =========================================
+   Botões 
+   ========================================= */
 .btn-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #005594 0%, #003d6b 100%);
+    padding: 12px 24px;
+    background: var(--senai-blue);
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.85rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: background 0.3s ease;
-    border: none;
+    transition: all 0.3s ease;
+    align-self: flex-start;
 }
 
 .btn-link:hover {
-    background: linear-gradient(135deg, #003d6b 0%, #002540 100%);
-    box-shadow: 0 4px 12px rgba(0, 85, 148, 0.3);
+    background: var(--senai-blue-dark);
+    box-shadow: 0 5px 15px rgba(0, 85, 148, 0.4);
+    transform: scale(1.05);
 }
 
+/* =========================================
+   Footer Styles 
+   ========================================= */
+.main-footer {
+    background-color: var(--senai-blue);
+    color: white;
+    padding: 20px 0;
+    margin-top: auto;
+    border-top: 4px solid var(--senai-red);
+}
 
-.card-grupo::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    background: radial-gradient(circle at top right, rgba(0,85,148,0.05) 0%, transparent 70%);
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+}
+
+.footer-spacer {
+    /* Usado para centralizar o texto no grid */
+}
+
+.footer-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-text p {
+    margin: 0 0 5px 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.footer-text span {
+    font-size: 0.95rem;
+    color: #e2e8f0;
+}
+
+.linkedin-link {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.linkedin-link:hover {
+    color: #a0aec0;
+    text-decoration: underline;
+}
+
+.footer-logo-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo-fiep {
+    height: 75px;
+    object-fit: contain;
+    border-radius: 4px;
+    background: white;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .header-titles h1 {
+        font-size: 1.4rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .footer-logo-container {
+        justify-content: center;
+    }
+    .footer-spacer {
+        display: none;
+    }
+}
+
+/* =========================================
+   Animations 
+   ========================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
